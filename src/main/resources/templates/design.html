@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>肉夹馍制作</title>
+</head>
+<body>
+    <h1>订购你的肉夹馍</h1>
+    <form method="post" th:object="${design}" >
+        <div class="grid">
+            <div class="ingredient-group" id="meat">
+                <h3>选择你的肉</h3>
+                <div th:each="ingredient : ${meat}">
+                    <input name="ingredients" type="radio" th:value="${ingredient.id}"/>
+                    <span th:text="${ingredient.name}">选项</span>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="dish">
+                <h3>选择配菜</h3>
+                <div th:each="ingredient : ${dish}" >
+                    <input name="ingredients" type="checkbox" th:value="${ingredient.id}">
+                    <span th:text="${ingredient.name}">选项</span>
+                </div>
+            </div>
+
+            <h3>用户信息</h3>
+            <input type="text" name="name" th:value="${name}"/>
+
+            <button>提交</button>
+        </div>
+    </form>
+
+</body>
+</html>
